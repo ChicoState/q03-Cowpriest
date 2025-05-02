@@ -14,13 +14,13 @@ class GuesserTest : public ::testing::Test
 		virtual void TearDown(){} //clean up after each test, (before destructor)
 };
 
-TEST(GuesserTest, secret_never_too_short)
+TEST(GuesserTest, secret_min_length_0)
 {
   Guesser object(          "");
   ASSERT_TRUE(object.match(""));
 }
 
-TEST(GuesserTest, secret_never_too_long)
+TEST(GuesserTest, secret_max_length_32)
 {
   Guesser object(          "123456789012345678901234567890123456789012345678901234567890");
   ASSERT_TRUE(object.match("12345678901234567890123456789012"));
